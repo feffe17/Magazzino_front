@@ -1,6 +1,8 @@
+import Navbar from "../components/NavBar"
 export default function Home() {
     return (
         <>
+            <Navbar />
             <main>
                 <div className="container mt-5">
                     <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">

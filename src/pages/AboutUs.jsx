@@ -1,7 +1,12 @@
+import NavBar from "../components/NavBar"
 export default function AbouteUs() {
     return (
         <>
-            <h2>About Us</h2>
+            <NavBar />
+            <main>
+                <h2>About Us</h2>
+
+            </main>
 
         </>
     )

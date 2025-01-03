@@ -7,6 +7,7 @@ import DefaultLayout from "./pages/DefaultLayout"
 import Home from "./pages/Home"
 import AboutUs from "./pages/AboutUs"
 import Donate from "./pages/Donate"
+import Register from "./pages/Register.jsx"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/donate" element={<Donate />} />
+            <Route path="/register" element={<Register />} />
           </Route>
         </Routes>
       </BrowserRouter>

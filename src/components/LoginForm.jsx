@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function LoginForm() {
     const [showPassword, setShowPassword] = useState(false);
@@ -18,20 +19,24 @@ export default function LoginForm() {
                     <label htmlFor="email" className="form-label">Email</label>
                     <input type="email" className="form-control" id="email" />
                 </div>
-                <div className="mb-2 position-relative">
+                <div className="mb-2 col-12">
                     <label htmlFor="password" className="form-label">Password</label>
                     <input
                         type={showPassword ? "text" : "password"}
-                        className="form-control"
+                        className="form-control col-12"
                         id="password"
                     />
-                    <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary mt-2"
-                        onClick={togglePasswordVisibility}
-                    >
-                        {showPassword ? "Hide" : "Show"}
-                    </button>
+                    <div className="col-12 mt-2 d-flex justify-content-between">
+                        <button
+                            type="button"
+                            className="btn btn-sm btn-outline-secondary"
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? "Hide" : "Show"}
+                        </button>
+                        <NavLink className="nav-link" to="/register">Non sei ancora registrato? Registrati qui!</NavLink>
+
+                    </div>
                 </div>
                 <button type="submit" className="btn btn-primary col-11 mx-auto">Login</button>
             </form>

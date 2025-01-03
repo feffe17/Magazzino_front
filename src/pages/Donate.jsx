@@ -1,7 +1,12 @@
+import NavBar from "../components/NavBar"
 export default function Donate() {
     return (
         <>
-            <h2>Donate</h2>
+            <NavBar />
+            <main>
+                <h2>Donate</h2>
+
+            </main>
 
         </>
     )

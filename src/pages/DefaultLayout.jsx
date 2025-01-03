@@ -1,4 +1,3 @@
-import Navbar from "../components/NavBar"
 import { Outlet } from "react-router-dom"
 import { NavLink } from "react-router-dom"
 export default function DefaultLayout() {
@@ -7,7 +6,6 @@ export default function DefaultLayout() {
             <header className="bg-secondary p-4 d-flex justify-content-center align-items-center">
                 <NavLink className="text-decoration-none text-black" to="/"> <h1>Stock Easy</h1></NavLink>
             </header>
-            <Navbar />
             <main>
                 <Outlet />
             </main>

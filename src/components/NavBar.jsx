@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LoginForm from "./LoginForm";
 
 export default function NavBar() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showLoginForm, setShowLoginForm] = useState(false);
+
+    useEffect(() => {
+        // Controlla se il token è presente in localStorage
+        const token = localStorage.getItem("authToken");
+        setIsLoggedIn(!!token);
+    }, []);
 
     const toggleLoginForm = () => {
         setShowLoginForm((prevState) => !prevState);
+    };
+
+    const handleLoginSuccess = () => {
+        setIsLoggedIn(true);
+        setShowLoginForm(false); // Nasconde il modulo di login
+    };
+
+    const handleLogout = () => {
+        // Rimuovi il token
+        localStorage.removeItem("authToken");
+        setIsLoggedIn(false);
     };
 
     return (
@@ -26,13 +44,21 @@ export default function NavBar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <button
-                                className="nav-link align-self-start"
-                                onClick={toggleLoginForm}
-                                aria-current="page"
-                            >
-                                Login
-                            </button>
+                            {isLoggedIn ? (
+                                <button
+                                    className="nav-link align-self-start"
+                                    onClick={handleLogout}
+                                >
+                                    Logout
+                                </button>
+                            ) : (
+                                <button
+                                    className="nav-link align-self-start"
+                                    onClick={toggleLoginForm}
+                                >
+                                    Login
+                                </button>
+                            )}
                             <NavLink className="nav-link" to="/about-us">About Us</NavLink>
                             <NavLink className="nav-link" to="/Donate">Donate</NavLink>
                             <NavLink className="nav-link" to="#">Prova</NavLink>
@@ -40,7 +66,7 @@ export default function NavBar() {
                     </div>
                 </div>
             </nav>
-            {showLoginForm && <LoginForm />}
+            {showLoginForm && <LoginForm onLoginSuccess={handleLoginSuccess} />}
         </>
     );
 }

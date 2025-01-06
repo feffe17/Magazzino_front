@@ -28,11 +28,13 @@ export default function NavBar() {
     };
 
     return (
-        <>
-            <nav className="navbar navbar-expand-lg">
+        <div className="position-relative">
+
+
+            <nav className="navbar navbar-expand-lg position-absolute">
                 <div className="container-fluid">
                     <button
-                        className="navbar-toggler"
+                        className="navbar-toggler btn btn-light border border-light"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup"
@@ -40,23 +42,25 @@ export default function NavBar() {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span className="navbar-toggler-icon"></span>
+                        <span className="bi bi-list text-light"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div className="collapse navbar-collapse bg-navbar" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <NavLink className="nav-link" to="/">Home</NavLink>
-                            <NavLink className="nav-link" to="/about-us">About Us</NavLink>
-                            <NavLink className="nav-link" to="/Donate">Donate</NavLink>
+                            <NavLink className="nav-link text-warning" to="/">Home</NavLink>
+                            <a href="#">Your Storages</a>
+                            <a href="#">Your Profile</a>
+                            <NavLink className="nav-link text-warning" to="/about-us">About Us</NavLink>
+                            <NavLink className="nav-link text-warning" to="/Donate">Donate</NavLink>
                             {isLoggedIn ? (
                                 <button
-                                    className="nav-link align-self-start"
+                                    className="nav-link align-self-start text-warning"
                                     onClick={handleLogout}
                                 >
                                     Logout
                                 </button>
                             ) : (
                                 <button
-                                    className="nav-link align-self-start"
+                                    className="nav-link align-self-start text-warning"
                                     onClick={toggleLoginForm}
                                 >
                                     Login
@@ -67,6 +71,6 @@ export default function NavBar() {
                 </div>
             </nav>
             {showLoginForm && <LoginForm onLoginSuccess={handleLoginSuccess} />}
-        </>
+        </div>
     );
 }

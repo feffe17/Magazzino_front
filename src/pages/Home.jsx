@@ -1,18 +1,19 @@
 import Navbar from "../components/NavBar"
+import { NavLink } from "react-router"
+import style from "../components/Home.module.css"
 export default function Home() {
     return (
         <>
-            <Navbar />
-            <main>
-                <div className="container mt-5">
-                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
-                        <div className="col">Visualizza il tuo inventario</div>
-                        <div className="col">Aggiorna il tuo inventario</div>
-                        <div className="col">Fast Scan</div>
-                        <div className="col">Imposta quantità minime</div>
+            <div className={style.background}>
+                <div className={style.layer}>
+                    <Navbar />
+                    <div className="container d-flex justify-content-center align-items-center w-100 h-100">
+                        <p className={style.title}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia cumque ad enim assumenda fugit est possimus repellat pariatur similique reiciendis?</p>
+
                     </div>
                 </div>
-            </main>
+            </div>
+
         </>
     )
 }

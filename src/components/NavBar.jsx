@@ -44,6 +44,9 @@ export default function NavBar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
+                            <NavLink className="nav-link" to="/">Home</NavLink>
+                            <NavLink className="nav-link" to="/about-us">About Us</NavLink>
+                            <NavLink className="nav-link" to="/Donate">Donate</NavLink>
                             {isLoggedIn ? (
                                 <button
                                     className="nav-link align-self-start"
@@ -59,9 +62,6 @@ export default function NavBar() {
                                     Login
                                 </button>
                             )}
-                            <NavLink className="nav-link" to="/about-us">About Us</NavLink>
-                            <NavLink className="nav-link" to="/Donate">Donate</NavLink>
-                            <NavLink className="nav-link" to="#">Prova</NavLink>
                         </div>
                     </div>
                 </div>

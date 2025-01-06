@@ -5,7 +5,6 @@ export default function Donate() {
             <NavBar />
             <main>
                 <h2>Donate</h2>
-
             </main>
 
         </>

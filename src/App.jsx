@@ -8,6 +8,7 @@ import Home from "./pages/Home"
 import AboutUs from "./pages/AboutUs"
 import Donate from "./pages/Donate"
 import Register from "./pages/Register.jsx"
+import Login from "./pages/Login.jsx"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>

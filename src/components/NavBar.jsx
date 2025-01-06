@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import LoginForm from "./LoginForm";
 
 export default function NavBar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -59,18 +58,12 @@ export default function NavBar() {
                                     Logout
                                 </button>
                             ) : (
-                                <button
-                                    className="nav-link align-self-start text-warning"
-                                    onClick={toggleLoginForm}
-                                >
-                                    Login
-                                </button>
+                                <NavLink className="nav-link text-warning" to="/login">Login</NavLink>
                             )}
                         </div>
                     </div>
                 </div>
             </nav>
-            {showLoginForm && <LoginForm onLoginSuccess={handleLoginSuccess} />}
         </div>
     );
 }

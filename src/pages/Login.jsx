@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import api from "../context/apiContext";
 
-export default function LoginForm({ onLoginSuccess }) {
+export default function Login({ onLoginSuccess }) {
     const [showPassword, setShowPassword] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+
+    const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
         setShowPassword((prevState) => !prevState);
@@ -23,12 +26,20 @@ export default function LoginForm({ onLoginSuccess }) {
             // Salva il token in localStorage
             localStorage.setItem("authToken", token);
 
-            // Notifica il successo al componente genitore
-            onLoginSuccess();
+            // Mostra un messaggio di successo
+            setSuccess("Login effettuato con successo! Reindirizzamento in corso...");
+            setError(""); // Resetta eventuali errori precedenti
 
-            setError(""); // Resetta eventuali errori
+            // Notifica il successo al componente genitore (opzionale)
+            onLoginSuccess?.();
+
+            // Reindirizza alla home dopo 2 secondi
+            setTimeout(() => {
+                navigate("/");
+            }, 2000);
         } catch (err) {
             setError("Credenziali non valide.");
+            setSuccess(""); // Resetta eventuali messaggi di successo
         }
     };
 
@@ -64,13 +75,13 @@ export default function LoginForm({ onLoginSuccess }) {
                         >
                             {showPassword ? "Nascondi" : "Mostra"}
                         </button>
-                        <NavLink className="nav-link" to="/register">
-                            Non sei ancora registrato? Registrati qui!
-                        </NavLink>
                     </div>
                 </div>
                 {error && (
                     <div className="text-danger text-center">{error}</div>
+                )}
+                {success && (
+                    <div className="text-success text-center">{success}</div>
                 )}
                 <button type="submit" className="btn btn-primary col-11 mx-auto">Login</button>
             </form>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import api from "../context/apiContext";
 
 export default function Login({ onLoginSuccess }) {
@@ -84,6 +84,7 @@ export default function Login({ onLoginSuccess }) {
                     <div className="text-success text-center">{success}</div>
                 )}
                 <button type="submit" className="btn btn-primary col-11 mx-auto">Login</button>
+                <NavLink to="/register" className="btn btn-secondary col-11 mx-auto mt-2">Sign Up!</NavLink>
             </form>
         </div>
     );

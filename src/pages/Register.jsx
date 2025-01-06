@@ -71,11 +71,11 @@ export default function Register() {
                             <input type="email" className="form-control" id="email" required />
                         </div>
                         <div className="mb-2 col-md-6">
-                            <label htmlFor="nome" className="form-label">Nome</label>
+                            <label htmlFor="nome" className="form-label">Name</label>
                             <input type="text" className="form-control" id="nome" required />
                         </div>
                         <div className="mb-2 col-md-6">
-                            <label htmlFor="cognome" className="form-label">Cognome</label>
+                            <label htmlFor="cognome" className="form-label">Last Name</label>
                             <input type="text" className="form-control" id="cognome" required />
                         </div>
                         <div className="col-12">
@@ -90,7 +90,7 @@ export default function Register() {
                             />
                         </div>
                         <div className="mb-2 col-12">
-                            <label htmlFor="confirmPassword" className="form-label">Conferma Password</label>
+                            <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
                             <input
                                 type={showPassword ? "text" : "password"}
                                 className="form-control"

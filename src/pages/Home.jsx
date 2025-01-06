@@ -1,4 +1,4 @@
-import Navbar from "../components/NavBar"
+import NavBar from "../components/NavBar"
 import { NavLink } from "react-router"
 import style from "../components/Home.module.css"
 export default function Home() {
@@ -6,7 +6,7 @@ export default function Home() {
         <>
             <div className={style.background}>
                 <div className={style.layer}>
-                    <Navbar />
+                    <NavBar />
                     <div className="container d-flex align-items-center flex-column w-100">
                         <p className={style.title}>Fast and easy administration for your storage</p>
                         <button className="btn btn-warning col-6">Get Started!</button>

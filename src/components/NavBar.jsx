@@ -47,7 +47,7 @@ export default function NavBar() {
                         <div className="navbar-nav">
                             <NavLink className="nav-link text-warning" to="/">Home</NavLink>
                             <a href="#">Your Storages</a>
-                            <a href="#">Your Profile</a>
+                            <NavLink className="nav-link text-warning" to="/profile">Your Profile</NavLink>
                             <NavLink className="nav-link text-warning" to="/about-us">About Us</NavLink>
                             <NavLink className="nav-link text-warning" to="/Donate">Donate</NavLink>
                             {isLoggedIn ? (

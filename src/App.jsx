@@ -9,6 +9,7 @@ import AboutUs from "./pages/AboutUs"
 import Donate from "./pages/Donate"
 import Register from "./pages/Register.jsx"
 import Login from "./pages/Login.jsx"
+import Profile from "./pages/Profile.jsx"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />} >
             <Route index element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/register" element={<Register />} />
